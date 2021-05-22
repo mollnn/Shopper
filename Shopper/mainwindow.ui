@@ -6,16 +6,111 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>471</width>
+    <height>396</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QListView" name="listView"/>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="btnAdd">
+        <property name="text">
+         <string>添加商品</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnBuy">
+        <property name="text">
+         <string>购买商品</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnDelete">
+        <property name="text">
+         <string>删除商品</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnMake">
+        <property name="text">
+         <string>发工资</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>471</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMenuCommodity">
+    <property name="title">
+     <string>商品</string>
+    </property>
+    <addaction name="actionMenuAdd"/>
+    <addaction name="actionMenuBuy"/>
+    <addaction name="actionMenuDelete"/>
+   </widget>
+   <widget class="QMenu" name="menuMenuMoney">
+    <property name="title">
+     <string>财富</string>
+    </property>
+    <addaction name="actionMenuMake"/>
+   </widget>
+   <addaction name="menuMenuCommodity"/>
+   <addaction name="menuMenuMoney"/>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionMenuAdd">
+   <property name="text">
+    <string>添加</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionMenuBuy">
+   <property name="text">
+    <string>购买</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionMenuDelete">
+   <property name="text">
+    <string>删除</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="actionMenuMake">
+   <property name="text">
+    <string>发工资</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
