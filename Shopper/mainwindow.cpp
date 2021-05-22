@@ -13,26 +13,31 @@ MainWindow::MainWindow(QWidget *parent)
 
     status=new Status(this);
 
-    connect(ui->btnAdd, &QPushButton::clicked, [&](){
+    connect(ui->actionMenuAdd, &QAction::triggered, [&](){
         QString name = QInputDialog::getText(this,tr("Shopper"),tr("输入名称"));
         int money = QInputDialog::getInt(this,tr("Shopper"),tr("输入价格"));
         status->AddCommodity(name,money);
     });
 
-    connect(ui->btnBuy, &QPushButton::clicked,   [&](){
+    connect(ui->actionMenuBuy, &QAction::triggered,   [&](){
         int id=ui->listWidget->currentRow();
         status->BuyCommodity(id);
     });
 
-    connect(ui->btnDelete, &QPushButton::clicked,  [&](){
+    connect(ui->actionMenuDelete, &QAction::triggered, [&](){
         int id=ui->listWidget->currentRow();
         status->DeleteCommodity(id);
     });
 
-    connect(ui->btnMake, &QPushButton::clicked,  [&](){
+    connect(ui->actionMenuMake, &QAction::triggered, [&](){
         int money = QInputDialog::getInt(this,tr("Shopper"),tr("输入本次工资"));
         status->MakeMoney(money);
     });
+
+    connect( ui->btnAdd, &QPushButton::clicked,ui->actionMenuAdd, &QAction::triggered);
+    connect( ui->btnBuy, &QPushButton::clicked,ui->actionMenuBuy, &QAction::triggered);
+    connect( ui->btnDelete, &QPushButton::clicked,ui->actionMenuDelete, &QAction::triggered);
+    connect( ui->btnMake, &QPushButton::clicked,ui->actionMenuMake, &QAction::triggered);
 
     connect(status, &Status::dataChanged, [&](){
         ui->listWidget->clear();
@@ -40,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
         {
             ui->listWidget->addItem(item.first + " ~" + QString::asprintf("%d",item.second));
         }
-        ui->statusbar->showMessage(QString::asprintf("余额：%d",status->GetMoney()));
+        ui->label->setText(QString::asprintf("余额：%d",status->GetMoney()));
     });
 }
 

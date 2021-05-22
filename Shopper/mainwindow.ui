@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Shopper</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -23,32 +23,39 @@
       <item>
        <widget class="QPushButton" name="btnAdd">
         <property name="text">
-         <string>添加商品</string>
+         <string>添加商品(&amp;A)</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btnBuy">
         <property name="text">
-         <string>购买商品</string>
+         <string>购买商品(&amp;B)</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btnDelete">
         <property name="text">
-         <string>删除商品</string>
+         <string>删除商品(&amp;D)</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btnMake">
         <property name="text">
-         <string>发工资</string>
+         <string>发工资(&amp;C)</string>
         </property>
        </widget>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -78,10 +85,9 @@
    <addaction name="menuMenuCommodity"/>
    <addaction name="menuMenuMoney"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionMenuAdd">
    <property name="text">
-    <string>添加</string>
+    <string>添加(&amp;A)</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+A</string>
@@ -89,7 +95,7 @@
   </action>
   <action name="actionMenuBuy">
    <property name="text">
-    <string>购买</string>
+    <string>购买(&amp;B)</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+B</string>
@@ -97,7 +103,7 @@
   </action>
   <action name="actionMenuDelete">
    <property name="text">
-    <string>删除</string>
+    <string>删除(&amp;D)</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+D</string>
@@ -105,7 +111,7 @@
   </action>
   <action name="actionMenuMake">
    <property name="text">
-    <string>发工资</string>
+    <string>发工资(&amp;C)</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+C</string>
