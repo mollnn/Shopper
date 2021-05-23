@@ -4,6 +4,7 @@
 #include <QInputDialog>
 #include <QString>
 #include <QObject>
+#include <QCloseEvent>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -60,3 +61,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    hide();
+    event->ignore();
+}

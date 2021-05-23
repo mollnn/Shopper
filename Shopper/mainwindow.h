@@ -16,6 +16,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void closeEvent(QCloseEvent *event);
+
 private:
     Ui::MainWindow *ui;
     Status *status;
