@@ -1,4 +1,5 @@
 #include "status.h"
+#include <QDebug>
 
 Status::Status(QWidget *parent)
 {
@@ -41,4 +42,34 @@ void Status::MakeMoney(int delta)
 int Status::GetMoney()
 {
     return money;
+}
+
+void Status::Read()
+{
+    QFile file(tr("./status.data"));
+    int flag = file.open(QIODevice::ReadOnly);
+    if(!flag)
+    {
+        qDebug()<<"fail to open file";
+        return;
+    }
+    QDataStream ds(&file);
+    ds>>money>>list;
+    file.close();
+    emit dataChanged();
+}
+
+void Status::Write()
+{
+    QFile file(tr("./status.data"));
+
+    int flag = file.open(QIODevice::WriteOnly);
+    if(!flag)
+    {
+        qDebug()<<"fail to open file";
+        return;
+    }
+    QDataStream ds(&file);
+    ds<<money<<list;
+    file.close();
 }

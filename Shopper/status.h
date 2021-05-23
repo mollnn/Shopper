@@ -2,6 +2,8 @@
 #define STATUS_H
 
 #include <QObject>
+#include <QFile>
+#include <QDataStream>
 
 class Status: public QObject
 {
@@ -20,6 +22,10 @@ public:
     void DeleteCommodity(int id);
     void MakeMoney(int delta);
     int GetMoney();
+
+    void Read();
+    void Write();
+
 
 signals:
     void dataChanged();

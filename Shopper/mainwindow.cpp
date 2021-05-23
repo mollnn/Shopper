@@ -46,7 +46,13 @@ MainWindow::MainWindow(QWidget *parent)
             ui->listWidget->addItem(item.first + " ~" + QString::asprintf("%d",item.second));
         }
         ui->label->setText(QString::asprintf("余额：%d",status->GetMoney()));
+        status->Write();
     });
+
+    // Init
+
+
+    status->Read();
 }
 
 MainWindow::~MainWindow()
